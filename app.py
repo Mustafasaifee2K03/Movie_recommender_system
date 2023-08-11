@@ -3,7 +3,7 @@ import pickle
 import pandas as pd
 import requests
 import helper
-# load the dataset object that we preprocessed in the file preprocessing.ipynb
+# load the dataset(pickle file) object that we preprocessed in the file preprocessing.ipynb
 movies_dict=pickle.load(open('movie_dict.pkl','rb'))
 # print(type(movies_dict))
 #Convert it to a pandas dataframe 
@@ -13,8 +13,10 @@ selected_movie_name=st.selectbox(
 'Select a movie',
 movies['title'].values
 )
+# load the similarity matrix which contains the cosine similarity of each tuple with all the tuples
 similarity=pickle.load(open('similarity.pkl','rb'))
 if st.button('Recommend Similar Movies'):
+   #here upper_limit-lower_limit is the number of movies needed to be recommended
    names,posters=helper.recommend_movies(selected_movie_name,lower_limit=1,upper_limit=7)
    col1,col2,col3,col4,col5,col6=st.columns(6)
    with col1:
