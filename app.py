@@ -3,8 +3,10 @@ import pickle
 import pandas as pd
 import requests
 import helper
+# load the dataset object that we preprocessed in the file preprocessing.ipynb
 movies_dict=pickle.load(open('movie_dict.pkl','rb'))
 # print(type(movies_dict))
+#Convert it to a pandas dataframe 
 movies=pd.DataFrame(movies_dict)
 st.title('Movie Recommender System')
 selected_movie_name=st.selectbox(
