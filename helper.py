@@ -1,7 +1,8 @@
-# how to fetch index
+# import all the necessary libraries
 import pandas as pd
 import pickle
 import requests
+# laod the similarity matrix that contains the matrix of cosine similarities of each tuple with all the tuples
 similarity=pickle.load(open('similarity.pkl','rb'))
 movies_dict=pickle.load(open('movie_dict.pkl','rb'))
 # print(type(movies_dict))
